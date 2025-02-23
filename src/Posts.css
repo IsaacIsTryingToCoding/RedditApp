@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.posts-list {  
+  max-width: 100%;
+  width: 100%;
+  height: calc(100vh - 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Distanza tra i post */
+
+}
+
+.post-item {
+  max-width: 100%; /* Mantiene la larghezza massima del contenitore */
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding: 0 25px 0 0;
+  border: 1px solid var(--secondary-background);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--posts-backgorund);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+.post-header {
+  padding-top: 10px;
+  max-width: 100%;
+  width: 100%;
+
+}
+
+.post-header-votes {
+  width:70px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  margin-top: 90px;
+
+}
+.post-header-votes svg {
+  cursor: pointer;
+  font-size: 20px;
+  color: #555;
+  transition: color 0.3s;
+}
+.post-header-votes svg:hover {
+  color: var(--accent-color); /* Cambia colore quando si passa sopra con il mouse */
+}
+
+.post {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-header {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.post-header h3 {
+  max-width: 100%;
+  padding: 18px 0;
+  font-size: 22px;
+}
+
+
+.post-header img {
+  width: 100%;
+  height: auto;
+  max-height: 820px; 
+  border-radius: 5px;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+.no-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px; /* Altezza predefinita per i post senza immagine */
+  background-color: #eee; /* Sfondo neutro */
+  border-radius: 5px;
+}
+
+.no-image-icon {
+  width: 150px;
+  height: auto;
+  color: #555;
+}  
+
+.post-message-container {
+  max-width: 100%; /* Limita la larghezza al contenitore */
+  overflow-wrap: break-word; /* Permette al testo di andare a capo */
+  word-wrap: break-word; /* Compatibilità legacy */
+  word-break: break-word; /* Spezza le parole troppo lunghe */
+  overflow: hidden; /* Nasconde eventuali contenuti in eccesso */
+}
+
+.post-message {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word; /* Spezza le parole lunghe */
+  font-size: 14px; /* Dimensione leggibile */
+  color: var(--text-color); /* Colore del testo */
+  line-height: 1.6; /* Spaziatura tra le righe */
+  padding: 20px 0;
+  border-bottom: 1px solid var(--text-color);
+
+}
+
+  .post-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0; /* Rimuove margini */
+    padding-bottom: 10px;
+
+  }
+  .post-info > p, 
+  .post-info > button {    
+    margin-top: 5px;
+    min-width: 90px;
+    color: var(--text-color);
+  }
+  
+
+.post-info p {
+  font-size: 14px;
+  color: #555;
+  color: var(--text-color);
+
+} 
+  
+.comments-icon {
+  margin-top: 10px;
+  cursor: pointer;
+  color: inherit; 
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin: 0; /* Rimuove margini */
+  padding: 0; 
+
+}
+  
+.comments-toggle {
+  display: flex; /* Imposta il layout flexbox */
+  align-items: center; /* Allinea verticalmente al centro */
+  justify-content: center;
+  gap: 5px; /* Spaziatura tra l'icona e il testo */
+  background-color: transparent; /* Rimuove lo sfondo */
+  border: none; /* Rimuove i bordi */
+  outline: none; /* Rimuove il bordo focus */
+  cursor: pointer; /* Mantiene il puntatore cliccabile */
+  margin: 0; /* Rimuove margini */
+  padding: 0; /* Rimuove padding */
+  color: var(--text-color); 
+  transition: color 0.3s;
+  font-size: 15px;
+
+}
+
+
+.comments-toggle:hover {
+  color: var(--accent-color)
+}
+
+.comments-list {
+  max-width: 100%; /* Assicura che i commenti rispettino la larghezza 
+  del genitore */
+  width: 100%;
+  word-wrap: break-word; /* Spezza le parole troppo lunghe */
+  overflow-wrap: break-word; /* Compatibilità */
+  padding-left: 20px;
+  margin-top: 20px;
+  
+
+}
+
+.comments-list li {
+  max-width: 100%; /* Adatta l'elemento alla larghezza del contenitore */
+  overflow-wrap: break-word; /* Permette al testo di andare a capo */
+  word-wrap: break-word; /* Compatibilità legacy */
+  word-break: break-word; /* Spezza le parole troppo lunghe */
+  overflow: hidden; /* Nasconde eventuali contenuti in eccesso */
+  margin-bottom: 8px; /* Spaziatura tra i commenti */
+  padding: 5px; /* Aggiunge un po' di padding per leggibilità */
+  border: 1px solid var(--background-color); /* Opzionale: separazione visiva */
+  border-radius: 4px; /* Arrotonda i bordi */
+  background-color: var(--post-color);
+  color: var(--text-color);
+}
+.comment-item {
+  max-width: 100%;
+  overflow-wrap: break-word; /* Permette al testo di andare a capo */
+  word-wrap: break-word; /* Compatibilità legacy */
+  word-break: break-word; /* Spezza le parole troppo lunghe */
+  overflow: hidden; /* Nasconde eventuali contenuti in eccesso */
+
+}
+
+  

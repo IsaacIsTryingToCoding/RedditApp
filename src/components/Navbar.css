@@ -1,0 +1,46 @@
+.navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-background);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    position: relative;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  /* Icona hamburger / X */
+  .hamburger-icon {
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: none;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hamburger-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Mostra l'hamburger su schermi sotto i 1440px (o 1024px, decidi tu) */
+  @media (max-width: 1440px) {
+    .hamburger-icon {
+      display: block;
+    }
+  }
+  

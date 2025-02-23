@@ -1,0 +1,17 @@
+:root {
+    --background-color: #171717;
+    --secondary-background: #212121;
+    --posts-backgorund: #303030;
+    --text-color: #d5d5d5;
+    --accent-color: #10a37f; 
+    --error-color: #ff4d4d; 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+  }

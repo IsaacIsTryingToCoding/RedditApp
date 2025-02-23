@@ -1,0 +1,96 @@
+body, html {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  overflow-y: hidden;
+}
+
+.App {
+  display: flex;
+  flex-direction: column; 
+  min-width: 550px;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Messaggi di errore */
+.error-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Contenitore principale */
+.content {
+  display: flex;
+  height: calc(100vh - 80px);
+  box-sizing: border-box;
+  padding: 30px 0; 
+}
+
+/* Wrapper dei contenuti (Posts) */
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0; 
+}
+
+/* Titolo principale */
+.content-title{
+  width: 100%;
+  display: Flex; 
+  flex-flow: row wrap; 
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Div che centralizza i post */
+.centralizing-post {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.subreddits-post {  
+  max-width: 1440px;
+  width: 100%;
+}
+
+/* Personalizzazione scrollbar */
+.centralizing-post::-webkit-scrollbar {
+  width: 8px; 
+  background: transparent;
+}
+
+.centralizing-post::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.centralizing-post::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-background);
+  border-radius: 10px;
+}
+
+.centralizing-post:hover::-webkit-scrollbar {
+  width: 8px;
+  transition: width 0.3s;
+}
+
+.centralizing-post::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 1440px) {
+  .centralizing-post {
+    scrollbar-width: none;
+  }
+}
