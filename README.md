@@ -52,7 +52,7 @@ If you're not satisfied with the build tool and configuration choices, you can `
 ## Live Application
 
 The application is deployed directly on GitHub.  
-[View the app online](https://github.com/IsaacIsTryingToCoding/RedditApp.git)  
+[View the app online](https://isaacistryingtocoding.github.io/RedditApp/)  
 
 ---
 
