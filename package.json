@@ -1,6 +1,8 @@
 {
-  "name": "RedditApp",
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "reddit-app",
   "version": "0.1.0",
+  "proxy": "https://www.reddit.com",
   "private": true,
   "homepage": "https://IsaacIsTryingToCoding.github.io/RedditApp",
   "dependencies": {
