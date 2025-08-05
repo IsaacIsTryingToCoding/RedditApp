@@ -1,5 +1,4 @@
-// URL base per l'API di Reddit
-xport const API_ROOT = "https://api.reddit.com/";
+export const API_ROOT = ""; 
 
 // 1. Recupera i post di un subreddit specifico
 export const getSubredditPosts = async (subreddit) => {
@@ -13,7 +12,7 @@ export const getSubredditPosts = async (subreddit) => {
 
 // 2. Recupera tutti i subreddit
 export const getSubreddits = async () => {
-    const response = await fetch(`${API_ROOT}subreddits.json`); // Percorso corretto
+    const response = await fetch(`${API_ROOT}/subreddits.json`);
     const json = await response.json();
 
     console.log("Dati ricevuti da getSubreddits:", json);
@@ -46,12 +45,10 @@ export const getPostComments = async (permalink) => {
 
 // 4. Recupera i post di un subreddit per la visualizzazione
 export const fetchPosts = async (subreddit = "all") => {
-    const response = await fetch(`${API_ROOT}/r/${subreddit}.json`);
+    const response = await fetch(`/r/${subreddit}.json`);
     const json = await response.json();
     console.log("Dati ricevuti da fetchPosts:", json);
 
-    return json.data.children.map((post) => ({
-        title: post.data.title,
-        thumbnail: post.data.thumbnail,
-    }));
-};
+    return json.data.children.map(({ data }) => data);
+    };
+
