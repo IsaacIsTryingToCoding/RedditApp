@@ -1,5 +1,5 @@
 // URL base per l'API di Reddit
-export const API_ROOT = "/api/"; // Proxy aggiunto
+xport const API_ROOT = "https://api.reddit.com/";
 
 // 1. Recupera i post di un subreddit specifico
 export const getSubredditPosts = async (subreddit) => {
