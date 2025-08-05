@@ -33,10 +33,10 @@ const Post = ({ subreddit }) => {
       
       <ul className="posts-list">
         {memoizedPosts.map((post) => (
-          <li key={post.id} className="post-item">
+          <li key={post.id || post.permalink} className="post-item">
             <div className="post-header-votes">
               <FaAngleUp onClick={() => dispatch(handleUpvote(post.id))} />
-              <p>{(votes[post.id] || 0) + post.ups}</p>
+              <p>{(votes[post.id] || 0) + (post.ups ?? 0)}</p>
               <FaAngleDown onClick={() => dispatch(handleDownvote(post.id))} />
             </div>
             <div className="post">
@@ -91,8 +91,8 @@ const Post = ({ subreddit }) => {
               <div className={`comments-container ${visibleComments[post.permalink] ? "show-comments" : ""}`}>
                 {comments[post.permalink] && (
                   <ul className="comments-list">
-                    {comments[post.permalink].map((comment, idx) => (
-                      <li key={idx}>{comment.body}</li>
+                    {comments[post.permalink].map((comment) => (
+                      <li key={comment.id || comment.name}>{comment.body}</li>
                     ))}
                   </ul>
                 )}
@@ -106,3 +106,4 @@ const Post = ({ subreddit }) => {
 };
 
 export default React.memo(Post);
+
