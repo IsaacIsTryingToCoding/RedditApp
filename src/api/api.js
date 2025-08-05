@@ -1,8 +1,10 @@
-export const API_ROOT = ""; 
+const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+const REDDIT     = "https://old.reddit.com";
 
 // 1. Recupera i post di un subreddit specifico
 export const getSubredditPosts = async (subreddit) => {
-    const response = await fetch(`${API_ROOT}/r/${subreddit}.json`); // Correzione del percorso
+    const target = encodeURIComponent(`${REDDIT}/r/${subreddit}.json`);
+    const response = await fetch(CORS_PROXY + target);
     const json = await response.json();
 
     console.log("Dati ricevuti da getSubredditPosts:", json);
@@ -12,18 +14,20 @@ export const getSubredditPosts = async (subreddit) => {
 
 // 2. Recupera tutti i subreddit
 export const getSubreddits = async () => {
-    const response = await fetch(`${API_ROOT}/subreddits.json`);
+    const target = encodeURIComponent(`${REDDIT}/subreddits.json`);
+    const response = await fetch(CORS_PROXY + target);
     const json = await response.json();
 
     console.log("Dati ricevuti da getSubreddits:", json);
 
-    return json.data.children.map((subreddit) => subreddit.data);
+    return json.data.children.map((sr) => sr.data);
 };
 
 // 3. Recupera i commenti di un post specifico
 export const getPostComments = async (permalink) => {
   try {
-    const response = await fetch(`${API_ROOT}${permalink}.json`);
+    const target = encodeURIComponent(`${REDDIT}${permalink}.json`);
+    const response = await fetch(CORS_PROXY + target);
     if (!response.ok) {
       throw new Error(`Errore nella risposta: ${response.status}`);
     }
@@ -45,7 +49,8 @@ export const getPostComments = async (permalink) => {
 
 // 4. Recupera i post di un subreddit per la visualizzazione
 export const fetchPosts = async (subreddit = "all") => {
-    const response = await fetch(`/r/${subreddit}.json`);
+    const target = encodeURIComponent(`${REDDIT}/r/${subreddit}.json`);
+    const response = await fetch(CORS_PROXY + target);
     const json = await response.json();
     console.log("Dati ricevuti da fetchPosts:", json);
 
