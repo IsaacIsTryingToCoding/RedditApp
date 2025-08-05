@@ -16,12 +16,8 @@ export const fetchPostsThunk = createAsyncThunk(
 export const fetchCommentsThunk = createAsyncThunk(
   'posts/fetchComments',
   async (permalink) => {
-    const response = await fetch(`https://api.reddit.com${permalink}.json`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch comments');
-    }
-    const json = await response.json();
-    return { permalink, comments: json[1].data.children.map((child) => child.data) };
+    const comments = await getPostComments(permalink);
+    return { permalink, comments };
   }
 );
 
