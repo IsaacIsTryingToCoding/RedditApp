@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchPosts } from '../FetchPosts';
-
+import { fetchPosts } from '../api/api';
 // Fetch posts thunk
 export const fetchPostsThunk = createAsyncThunk(
   'posts/fetchPosts',
@@ -17,7 +16,7 @@ export const fetchPostsThunk = createAsyncThunk(
 export const fetchCommentsThunk = createAsyncThunk(
   'posts/fetchComments',
   async (permalink) => {
-    const response = await fetch(`https://www.reddit.com${permalink}.json`);
+    const response = await fetch(`https://api.reddit.com${permalink}.json`);
     if (!response.ok) {
       throw new Error('Failed to fetch comments');
     }
